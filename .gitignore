@@ -1,4 +1,5 @@
-# ignore self-hosted runner files
-/actions-runner/
-# ignore self-hosted runner files
-/actions-runner/
+# ignore self-hosted runner folder
+actions-runner/
+# (ignore any log or env files)
+*.log
+.env
