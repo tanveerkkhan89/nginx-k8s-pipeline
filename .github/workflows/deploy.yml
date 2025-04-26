@@ -16,9 +16,13 @@ jobs:
 
     - name: Set up Kubeconfig
       run: |
-        mkdir -p ~/.kube
-        echo "${{ secrets.KUBECONFIG_DATA }}" > ~/.kube/config
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+        chmod 600 $HOME/.kube/config
+        export KUBECONFIG=$HOME/.kube/config
+        kubectl version --client
 
     - name: Deploy to Kubernetes
       run: |
+        export KUBECONFIG=$HOME/.kube/config
         kubectl apply -f nginxdep.yml --validate=false
