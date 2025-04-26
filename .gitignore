@@ -1,0 +1,4 @@
+# ignore self-hosted runner files
+/actions-runner/
+# ignore self-hosted runner files
+/actions-runner/
