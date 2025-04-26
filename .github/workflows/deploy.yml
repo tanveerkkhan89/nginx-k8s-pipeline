@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux, X64] #ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -21,4 +21,4 @@ jobs:
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f nginxdep.yml
+        kubectl apply -f nginxdep.yml --validate=false
